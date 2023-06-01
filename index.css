@@ -1,0 +1,325 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin: 0 auto;
+}
+
+#preview-image {
+  max-width: 400px;
+  max-height: 400px;
+  margin-bottom: 20px;
+}
+
+#compressed-image {
+  display: none;
+  margin-bottom: 20px;
+  max-width: 400px;
+  max-height: 400px;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border-top: 3px solid #4caf50;
+  border-right: 3px solid transparent;
+  animation: loading 1s linear infinite;
+}
+
+.wrapper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* nav styles */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: rgb(5, 5, 116);
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: black;
+}
+
+.nav__link {
+  position: fixed;
+  width: 94%;
+  top: 5rem;
+  left: 18px;
+  background-color: white;
+  text-decoration: none;
+}
+
+.nav__link a {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.nav__link a:hover {
+  color: black;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .nav__link {
+    display: block;
+    position: static;
+    width: auto;
+    margin-right: 20px;
+    background: none;
+  }
+
+  .nav__link a {
+    display: inline-block;
+    padding: 15px 20px;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+/* Create four equal columns that sits next to each other */
+
+.column {
+  flex: 25%;
+  max-width: 100%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 100px;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+.heading {
+  font-size: normal;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.small-text {
+  color: rgb(5, 5, 116);
+  text-align: center;
+}
+.p-text {
+  font-weight: bolder;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.roww {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.roww:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #4caf50;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.About {
+  background-color: #fff;
+  height: Auto;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0;
+}
+
+.About h2 {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  line-height: 6;
+}
+
+.privacy {
+  background-color: #fff;
+  height: Auto;
+  padding: 7px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0;
+}
+
+.privacy h2 {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  line-height: 6;
+}
+
+.contact {
+  background-color: #fff;
+  height: Auto;
+  padding: 7px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0;
+}
+
+.contact h2 {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  line-height: 6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input {
+  display: none;
+}
+
+.lb {
+  height: 100px;
+  width: 150px;
+  border-radius: 6px;
+  border: 1px dashed #999;
+  text-align: center;
+}
+
+.lb:hover {
+  color: #de0611;
+  border: 1px dashed #de0611;
+}
+
+#imageInput {
+  margin-bottom: 20px;
+}
+
+#canvas {
+  display: none;
+}
+
+#countButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#countButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

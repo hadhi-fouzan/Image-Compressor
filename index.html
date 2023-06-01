@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" type="text/css" />
+
+    <title>Compress image to 20KB</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header id="header">
+        <div class="container-fluid">
+          <nav class="nav">
+            <a href="/" class="logo">online Tool </a>
+
+            <div class="hamburger">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+
+            <div class="nav__link hide">
+              <a href="#About" style="text-decoration: none">About us</a>
+              <a href="#Contact" style="text-decoration: none">Contact</a>
+              <a href="#Privacy" style="text-decoration: none"
+                >Privacy & Policy</a
+              >
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <br />
+
+    <div class="container">
+      <h1>Compress Image To 20KB</h1>
+      <input type="file" id="image-input" accept="image/*" />
+      <label for="image-input" class="lb">
+        <i class="fa fa-cloud-upload"></i> Upload Image</label
+      >
+      <label id="file-name"></label>
+
+      <script>
+        document.querySelector("#image-input").onchange = function () {
+          document.querySelector("#file-name").textContent = this.files[0].name;
+        };
+      </script>
+
+      <br />
+      <button id="compress-btn" class="button">Compress Image</button><br />
+      <img id="preview-image" alt="" />
+      <a
+        id="download-link"
+        download="compressed_image.jpg"
+        href="#"
+        style="display: none"
+        >Download Compressed Image</a
+      >
+      <img id="compressed-image" alt="Compressed Image" />
+      <div id="loading-icon" class="loading-icon" style="display: none"></div>
+
+      <br />
+      <br />
+
+      <div class="container">
+        <h2>Image Pixel Counter</h2>
+        <input type="file" id="imageInput" accept="image/*" />
+        <label for="imageInput" class="lb">
+          <i class="fa fa-cloud-upload"></i> Upload Image</label
+        ><br />
+
+        <canvas id="canvas"></canvas>
+        <button id="countButton" disabled>Count Pixels</button>
+        <div id="pixelCountResult"></div>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          var imageInput = document.getElementById("imageInput");
+          var canvas = document.getElementById("canvas");
+          var countButton = document.getElementById("countButton");
+          var pixelCountResult = document.getElementById("pixelCountResult");
+          var ctx = canvas.getContext("2d");
+
+          imageInput.addEventListener("change", function (e) {
+            var file = e.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+              var image = new Image();
+              image.onload = function () {
+                canvas.width = image.width;
+                canvas.height = image.height;
+                ctx.drawImage(image, 0, 0);
+                countButton.disabled = false;
+              };
+              image.src = event.target.result;
+            };
+
+            reader.readAsDataURL(file);
+          });
+
+          countButton.addEventListener("click", function () {
+            var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            var pixels = imageData.data.length / 4;
+            pixelCountResult.innerHTML = "Total Pixels: " + pixels;
+          });
+        });
+      </script>
+    </div>
+    <div class="container">
+      <div class="wrapper">
+        <section>
+          <div class="row">
+            <div class="col-md-12">
+              <div>
+                <h2>FEATURES</h2>
+
+                <div class="roww">
+                  <div class="column">
+                    <div class="card">
+                      <i class="fa-solid fa-infinity fa-lg"></i>
+                      <h3>Unlimited</h3>
+                      <p>
+                        This Image Compressor is free and provides you to use it
+                        unlimited times and compress image size online.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="card">
+                      <i class="fa-solid fa-gauge fa-lg"></i>
+                      <h3>Fast Compression</h3>
+                      <p>
+                        Its compression processing is powerful. So, It takes
+                        less time to compress all the selected images.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="card">
+                      <i class="fa-solid fa-user-group fa-lg"></i>
+                      <h3>User Friendly</h3>
+                      <p>
+                        This tool is designed for all users, advanced knowledge
+                        is not required. So, It's easy to compress image size.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="column">
+                    <div class="card">
+                      <i class="fa-solid fa-power-off fa-lg"></i>
+                      <h3>Powerful Tool</h3>
+                      <p>
+                        You can access or use the Image Compressor online on the
+                        Internet using any browser from any operating system.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <br /><br />
+
+                <h2>How to compress image online?</h2>
+                <ol>
+                  <li>
+                    Select image that you want to compress on the Image
+                    Compressor.
+                  </li>
+                  <li>
+                    See the preview of all the selected images on the Image
+                    Compressor.
+                  </li>
+                  <li>Also, you can add or remove images from the list.</li>
+                  <li>
+                    Finally, download compressed images from the Image
+                    Compressor.
+                  </li>
+                </ol>
+                <br />
+                <p>
+                  Welcome to <b>Compress Image To 20KB</b>,the ultimate solution
+                  for reducing the size of your images without compromising on
+                  quality. Our powerful online tool is designed to help you
+                  optimize your images and enhance the performance of your
+                  website. By compressing your images to just 20KB, you can
+                  significantly improve your site's loading speed, resulting in
+                  better user experience and higher search engine rankings. With
+                  our user-friendly interface, you can easily upload and
+                  compress your images in a few simple steps. Start optimizing
+                  your images today with <b>ImageCompress20KB</b>.
+                </p>
+                <br />
+
+                <h2>How to compress jpeg to 20kb?</h2>
+                <p>
+                  Compress jpeg to 20kb by following the simple steps shared
+                  below:
+                </p>
+                <ol>
+                  <li>
+                    Upload the picture you desire to compress by tapping the
+                    Upload button.
+                  </li>
+                  <li>Press the “Compress Image” button.</li>
+                  <li>
+                    The downloadable compressed picture will be displayed on
+                    your screen instantly.
+                  </li>
+                  <li>Download and enjoy.</li>
+                </ol>
+
+                <br />
+                <h2>FAQs</h2>
+                <h3>How to Compress JPEG to 20kb?</h3>
+                <p>
+                  The online tool on Duplichecker.com enables you to compress
+                  image to 20kb straightaway. All you need to do is upload the
+                  image to the image compression facility. This tool will
+                  compress it instantly and provides you with the best quality
+                  reduced-size picture in no time.
+                </p>
+
+                <h3>How to Compress image to 20kb?</h3>
+                <p>
+                  Compress jpeg to 20kb with this free online tool. No
+                  professional assistance is required to reduce the size of
+                  photos with this tool. Simply upload the picture you want to
+                  compress on this site. The remaining process will be performed
+                  by the image compressor, and you will get a small size picture
+                  in a few seconds.
+                </p>
+
+                <h3>How Do I Compress a JPEG to 20KB on a Smartphone?</h3>
+                <p>
+                  You can use this tool for compressing any type of image to
+                  20KB or other size even if you have a smartphone.
+                </p>
+
+                <br />
+                <br />
+
+                <div class="About">
+                  <section id="About">
+                    <h2>About Us</h2>
+                    <h3>Welcome To Compress Image To 20KB</h3>
+                    <p>
+                      Compress Image To 20KB is a Professional Online tool
+                      Platform. Here we will provide you only interesting
+                      content, which you will like very much. We're dedicated to
+                      providing you with the best of Online tool, with a focus
+                      on dependability and Image compressor. We're working to
+                      turn our passion for Online tools into a booming online
+                      website. We hope you enjoy our Online tool as much as we
+                      enjoy offering them to you.
+                    </p>
+                    <b>Thanks For Visiting Our Site</b>
+                  </section>
+                </div>
+
+                <br />
+
+                <div class="privacy">
+                  <section id="Privacy">
+                    <h2>Privacy Policy</h2>
+                    <p>
+                      At Compress Image To 20KB, accessible from
+                      https://imagecompress20kb.blogspot.com/, one of our main
+                      priorities is the privacy of our visitors. This Privacy
+                      Policy document contains types of information that is
+                      collected and recorded by Compress Image To 20KB and how
+                      we use it. If you have additional questions or require
+                      more information about our Privacy Policy, do not hesitate
+                      to contact us. This Privacy Policy applies only to our
+                      online activities and is valid for visitors to our website
+                      with regards to the information that they shared and/or
+                      collect in Compress Image To 20KB. This policy is not
+                      applicable to any information collected offline or via
+                      channels other than this website.
+                    </p>
+                    <h3>Consent</h3>
+                    <p>
+                      By using our website, you hereby consent to our Privacy
+                      Policy and agree to its terms.
+                    </p>
+                    <h3>Information we collect</h3>
+                    <p>
+                      The personal information that you are asked to provide,
+                      and the reasons why you are asked to provide it, will be
+                      made clear to you at the point we ask you to provide your
+                      personal information. If you contact us directly, we may
+                      receive additional information about you such as your
+                      name, email address, phone number, the contents of the
+                      message and/or attachments you may send us, and any other
+                      information you may choose to provide. When you register
+                      for an Account, we may ask for your contact information,
+                      including items such as name, company name, address, email
+                      address, and telephone number.
+                    </p>
+                    <h3>How we use your information</h3>
+                    <p>
+                      We use the information we collect in various ways,
+                      including to:
+                    </p>
+                    <ul>
+                      <li>Provide, operate, and maintain our website</li>
+                      <li>Improve, personalize, and expand our website</li>
+                      <li>Understand and analyze how you use our website</li>
+                      <li>
+                        Develop new products, services, features, and
+                        functionality
+                      </li>
+                      <li>
+                        Communicate with you, either directly or through one of
+                        our partners, including for customer service, to provide
+                        you with updates and other information relating to the
+                        website, and for marketing and promotional purposes
+                      </li>
+                      <li>Send you emails</li>
+                      <li>Find and prevent fraud</li>
+                    </ul>
+
+                    <h3>Log Files</h3>
+                    <p>
+                      Compress Image To 20KB follows a standard procedure of
+                      using log files. These files log visitors when they visit
+                      websites. All hosting companies do this and a part of
+                      hosting services' analytics. The information collected by
+                      log files include internet protocol (IP) addresses,
+                      browser type, Internet Service Provider (ISP), date and
+                      time stamp, referring/exit pages, and possibly the number
+                      of clicks. These are not linked to any information that is
+                      personally identifiable. The purpose of the information is
+                      for analyzing trends, administering the site, tracking
+                      users' movement on the website, and gathering demographic
+                      information.
+                    </p>
+                    <h3>Google DoubleClick DART Cookie</h3>
+                    <p>
+                      Google is one of a third-party vendor on our site. It also
+                      uses cookies, known as DART cookies, to serve ads to our
+                      site visitors based upon their visit to www.website.com
+                      and other sites on the internet. However, visitors may
+                      choose to decline the use of DART cookies by visiting the
+                      Google ad and content network Privacy Policy at the
+                      following URL –
+                      https://policies.google.com/technologies/ads
+                    </p>
+
+                    <h3>Advertising Partners Privacy Policies</h3>
+
+                    <p>
+                      You may consult this list to find the Privacy Policy for
+                      each of the advertising partners of Compress Image To
+                      20KB. Third-party ad servers or ad networks uses
+                      technologies like cookies, JavaScript, or Web Beacons that
+                      are used in their respective advertisements and links that
+                      appear on Compress Image To 20KB, which are sent directly
+                      to users' browser. They automatically receive your IP
+                      address when this occurs. These technologies are used to
+                      measure the effectiveness of their advertising campaigns
+                      and/or to personalize the advertising content that you see
+                      on websites that you visit. Note that Compress Image To
+                      20KB has no access to or control over these cookies that
+                      are used by third-party advertisers.
+                    </p>
+
+                    <h3>
+                      CCPA Privacy Rights (Do Not Sell My Personal Information)
+                    </h3>
+                    <p>
+                      Under the CCPA, among other rights, California consumers
+                      have the right to: Request that a business that collects a
+                      consumer's personal data disclose the categories and
+                      specific pieces of personal data that a business has
+                      collected about consumers. Request that a business delete
+                      any personal data about the consumer that a business has
+                      collected. Request that a business that sells a consumer's
+                      personal data, not sell the consumer's personal data. If
+                      you make a request, we have one month to respond to you.
+                      If you would like to exercise any of these rights, please
+                      contact us.
+                    </p>
+
+                    <h3>GDPR Data Protection Rights</h3>
+                    <p>
+                      We would like to make sure you are fully aware of all of
+                      your data protection rights. Every user is entitled to the
+                      following: The right to access – You have the right to
+                      request copies of your personal data. We may charge you a
+                      small fee for this service. The right to rectification –
+                      You have the right to request that we correct any
+                      information you believe is inaccurate. You also have the
+                      right to request that we complete the information you
+                      believe is incomplete. The right to erasure – You have the
+                      right to request that we erase your personal data, under
+                      certain conditions. The right to restrict processing – You
+                      have the right to request that we restrict the processing
+                      of your personal data, under certain conditions. The right
+                      to object to processing – You have the right to object to
+                      our processing of your personal data, under certain
+                      conditions. The right to data portability – You have the
+                      right to request that we transfer the data that we have
+                      collected to another organization, or directly to you,
+                      under certain conditions. If you make a request, we have
+                      one month to respond to you. If you would like to exercise
+                      any of these rights, please contact us.
+                    </p>
+
+                    <h3>Children's Information</h3>
+                    <p>
+                      Another part of our priority is adding protection for
+                      children while using the internet. We encourage parents
+                      and guardians to observe, participate in, and/or monitor
+                      and guide their online activity. Compress Image To 20KB
+                      does not knowingly collect any Personal Identifiable
+                      Information from children under the age of 13. If you
+                      think that your child provided this kind of information on
+                      our website, we strongly encourage you to contact us
+                      immediately and we will do our best efforts to promptly
+                      remove such information from our records.
+                    </p>
+                  </section>
+                </div>
+                <br />
+                <div class="contact">
+                  <section id="Contact">
+                    <h2>Contact Us</h2>
+                    <p>
+                      Have a question, comment, or suggestion? We'd love to hear
+                      from you! Please don't hesitate to reach out to us by
+                      sending an email to <b>gadgetusa123@gmail.com</b> Our
+                      dedicated customer support team is here to assist you and
+                      will make every effort to respond to your inquiry as soon
+                      as possible. Whether you need assistance with placing an
+                      order, have a product inquiry, or just want to provide
+                      feedback, we value your input and strive to provide the
+                      best possible service. We appreciate your interest in our
+                      website and look forward to assisting you!
+                    </p>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const navLink = document.querySelector(".nav__link");
+
+      hamburger.addEventListener("click", () => {
+        navLink.classList.toggle("hide");
+      });
+    </script>
+
+    <script>
+      const imageInput = document.getElementById("image-input");
+      const compressBtn = document.getElementById("compress-btn");
+      const previewImage = document.getElementById("preview-image");
+      const downloadLink = document.getElementById("download-link");
+      const compressedImage = document.getElementById("compressed-image");
+      const loadingIcon = document.getElementById("loading-icon");
+
+      compressBtn.addEventListener("click", () => {
+        const file = imageInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+              const canvas = document.createElement("canvas");
+              const ctx = canvas.getContext("2d");
+              const maxWidth = 500;
+              const maxHeight = 500;
+              let width = img.width;
+              let height = img.height;
+
+              if (width > height && width > maxWidth) {
+                height *= maxWidth / width;
+                width = maxWidth;
+              } else if (height > width && height > maxHeight) {
+                width *= maxHeight / height;
+                height = maxHeight;
+              }
+
+              canvas.width = width;
+              canvas.height = height;
+
+              loadingIcon.style.display = "block";
+
+              ctx.drawImage(img, 0, 0, width, height);
+
+              canvas.toBlob(
+                (blob) => {
+                  const compressedSize = blob.size / 1024; // Size in KB
+                  if (compressedSize > 500) {
+                    alert(
+                      "Image size exceeds 20KB. Please choose a smaller image."
+                    );
+                  } else {
+                    const compressedURL = URL.createObjectURL(blob);
+                    previewImage.src = img.src;
+                    compressedImage.src = compressedURL;
+                    downloadLink.href = compressedURL;
+                    previewImage.style.display = "block";
+                    compressedImage.style.display = "block";
+                    downloadLink.style.display = "block";
+                  }
+
+                  loadingIcon.style.display = "none";
+                },
+                "image/jpeg",
+                0.7
+              ); // Adjust the quality as needed
+            };
+          };
+
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+    <script src="javascript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </body>
+</html>
